@@ -6,7 +6,10 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.php" class="navbar-brand">
-                    <img src="Design/images/restaurant-logo.png" alt="Restaurant Logo" style="width: 150px;">
+                    <div style="text-align: center; padding: 20px;">
+    <div style="font-size: 24px; font-weight: bold; color: #ffffffff;">CAMPUS EATS</div>
+    <div style="font-size: 14px; color: #666;">AITU Canteen</div>
+</div>
                 </a>
                 <div class="d-flex menu-wrap align-items-center">
                     <div class="mainmenu" id="mainmenu">
@@ -19,7 +22,7 @@
                         </ul>
                     </div>
                     <div class="header-btn" style="margin-left:10px">
-                        <a href="table-reservation.php" target="_blank" class="menu-btn">Reserve Table</a>
+                        <a href="table-reservation.php" target="_blank" class="menu-btn">Choose Pick Up Time</a>
                     </div>
                 </div>
             </nav>

@@ -49,7 +49,7 @@
 		<div class="container">
 			<div class="row" style="flex-wrap: nowrap;">
 				<div class="col-md-6 home-left-section">
-					<div style="padding: 100px 0px; color: white;">
+					<div style="padding: 100px 0px; color: red;">
 						<h1>
 							Campus Eats
 						</h1>
@@ -58,7 +58,7 @@
 						</h2>
 						<hr>
 						<p>
-							Italian Pizza With Cherry Tomatoes and Green Basil  
+							Fuel Your Mind, Feed Your Soul 
 						</p>
 						<div style="display: flex;">
 							<a href="order_food.php" target="_blank" class="bttn_style_1" style="margin-right: 10px; display: flex;justify-content: center;align-items: center;">
@@ -76,6 +76,8 @@
 			</div>
 		</div>
 	</section>
+
+	
 
 	<!-- OUR QUALITIES SECTION -->
 
@@ -97,7 +99,7 @@
 				</div>
 				<div class="col-md-4">
 					<div class="our_qualities_column">
-	                    <img src="Design/images/fast_delivery_img.png" >
+	                   
 	                    <div class="caption">
 	                        <h2>
 	                            PAY
@@ -265,7 +267,7 @@
 	                                                            <?php echo $menu['menu_description']; ?>
 	                                                        </p>
 	                                                        <span class="menu_price">
-	                                                        	<?php echo "$".$menu['menu_price']; ?>
+	                                                        	<?php echo "KZT".$menu['menu_price']; ?>
 	                                                        </span>
 	                                                    </div>
 	                                                </div>
@@ -293,33 +295,56 @@
 
 	<!-- IMAGE GALLERY -->
 
-	<section class="image-gallery" id="gallery">
-		<div class="container">
-			<h2 style="text-align: center;margin-bottom: 30px">IMAGE GALLERY</h2>
-			<?php
-				$stmt_image_gallery = $con->prepare("Select * from image_gallery");
-                $stmt_image_gallery->execute();
-                $rows_image_gallery = $stmt_image_gallery->fetchAll();
 
-                echo "<div class = 'row'>";
 
-	                foreach($rows_image_gallery as $row_image_gallery)
-	                {
-	                	echo "<div class = 'col-md-4 col-lg-3' style = 'padding: 15px;'>";
-	                		$source = "admin/Uploads/images/".$row_image_gallery['image'];
-	                		?>
+<section class="image-gallery" id="gallery">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 30px;">IMAGE GALLERY</h2>
+        <div class="row">
+            <div class="col-md-4 col-lg-3">
+                <div class="gallery-item">
+                    <img src="admin/Uploads/images/aitu_gal1.jpg" alt="Gallery Image 1" style="width:100%; height:230px; object-fit: cover;">
+                </div>
+            </div>
+			<div class="col-md-4 col-lg-3">
+                <div class="gallery-item">
+                    <img src="admin/Uploads/images/aitu_gal6.jpg" alt="Gallery Image 2" style="width:100%; height:230px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="gallery-item">
+                    <img src="admin/Uploads/images/aitu_gal2.jpg" alt="Gallery Image 2" style="width:100%; height:230px; object-fit: cover;">
+                </div>
+            </div>
+			<div class="col-md-4 col-lg-3">
+                <div class="gallery-item">
+                    <img src="admin/Uploads/images/aitu_gal3.jpg" alt="Gallery Image 3" style="width:100%; height:230px; object-fit: cover;">
+                </div>
+            </div>
+			<div class="col-md-4 col-lg-3">
+                <div class="gallery-item">
+                    <img src="admin/Uploads/images/aitu canteen.jpg" alt="Gallery Image 2" style="width:100%; height:230px; object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="gallery-item">
+                    <img src="admin/Uploads/images/aitu_gal5.jpg" alt="Gallery Image 2" style="width:100%; height:230px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-	                		<div style = "background-image: url('<?php echo $source; ?>') !important;background-repeat: no-repeat;background-position: 50% 50%;background-size: cover;background-clip: border-box;box-sizing: border-box;overflow: hidden;height: 230px;">
-	                		</div>
 
-	                		<?php
-	                	echo "</div>";
-	                }
 
-	            echo "</div>";
-			?>
-		</div>
-	</section>
+
+
+
+
+
+
+
+
 
 	<!-- CONTACT US SECTION -->
 
@@ -329,22 +354,16 @@
                 <div class="col-lg-6 sm-padding">
                     <div class="contact-info">
                         <h2>
-                            Get in touch with us & 
-                            <br>send us message today!
+                            Wanna get in touch with us? 
+                            <br>send us message!
                         </h2>
                         <p>
-                            Saasbiz is a different kind of architecture practice. Founded by LoganCee in 1991, we’re an employee-owned firm pursuing a democratic design process that values everyone’s input.
+                            Campus Eats - makes student lifes easier
                         </p>
+                        
                         <h3>
-                            <?php echo $restaurant_address; ?>
+                            Mangilik El, Astana IT University, KZ
                         </h3>
-                        <h4>
-                            <span>Email:</span> 
-                            <?php echo $restaurant_email; ?>
-                            <br> 
-                            <span>Phone:</span> 
-                            <?php echo $restaurant_phonenumber; ?>
-                        </h4>
                     </div>
                 </div>
                 <div class="col-lg-6 sm-padding">
@@ -409,14 +428,14 @@
 				<div class="col-md-4" style="padding: 10px;">
 					<div class="quality quality_2">
 						<div class="text_inside_quality">
-							<h5>Fastest Delivery</h5>
+							<h5>Fastest Pick Up</h5>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4" style="padding: 10px;">
 					<div class="quality quality_3">
 						<div class="text_inside_quality">
-							<h5>Original Recipes</h5>
+							<h5>Wide Selection</h5>
 						</div>
 					</div>
 				</div>
@@ -431,9 +450,12 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer_widget">
-                        <img src="Design/images/restaurant-logo.png" alt="Restaurant Logo" style="width: 150px;margin-bottom: 20px;">
+						<div style="text-align: center; padding: 20px;">
+    <div style="font-size: 24px; font-weight: bold; color: #ffffffff;">CAMPUS EATS</div>
+    <div style="font-size: 14px; color: #666;">AITU Canteen</div>
+</div>
                         <p>
-                            Our Restaurnt is one of the bests, provide tasty Menus and Dishes. You can reserve a table or Order food.
+                            Our App is one of the bests, provide tasty Menus and Dishes. 
                         </p>
                         <ul class="widget_social">
                             <li><a href="#" data-toggle="tooltip" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a></li>
@@ -446,15 +468,13 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                      <div class="footer_widget">
-                        <h3>Headquarters</h3>
-                        <p>
-                            <?php echo $restaurant_address; ?>
-                        </p>
-                        <p>
-                            <?php echo $restaurant_email; ?>
-                            <br>
-                            <?php echo $restaurant_phonenumber; ?>   
-                        </p>
+                        <h3>WE</h3>
+                        <ul class="opening_time">
+                            <li>Aruzhan Torebek</li>
+                            <li>Asylkhan Sayran</li>
+                            <li>Kundyz Zhumazhanova</li>
+                        </ul>
+
                      </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -470,18 +490,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer_widget">
-                        <h3>Subscribe to our contents</h3>
-                        <div class="subscribe_form">
-                            <form action="#" class="subscribe_form" novalidate="true">
-                                <input type="email" name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address...">
-                                <button type="submit" class="submit">SUBSCRIBE</button>
-                                <div class="clearfix"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>

@@ -306,7 +306,7 @@
 				                                	echo "<div class = 'item_select_part'>";
 				                                    	echo "<div class = 'menu_price_field'>";
 				    										echo "<span style = 'font-weight: bold;'>";
-				                                    			echo $row['menu_price']."$";
+				                                    			echo $row['menu_price']."KZT"; 
 				                                    		echo "</span>";
 				                                    	echo "</div>";
 				                                    ?>
@@ -327,12 +327,12 @@
                     		<?php
                     	}
 					?>
-				</div>				
+				</div>
+                <input type="hidden" id="total_price" name="total_price" value="0">
 			</div>
 
 
-            <!-- CLIENT DETAILS -->
-
+            <!-- CLIENT DETAILS --> 
 
             <div class="client_details_tab order_food_tab" id="clients_tab">
 
@@ -367,11 +367,14 @@
                     </div>
                     <div class="form-group colum-row row">
                         <div class="col-sm-12">
-                            <input type="text" name="client_delivery_address" id="client_delivery_address" oninput="document.getElementById('required_delivery_address').style.display = 'none'" class="form-control" placeholder="Delivery Address">
+                            <input type="text" name="client_delivery_address" id="client_delivery_address" oninput="document.getElementById('required_delivery_address').style.display = 'none'" class="form-control" placeholder="Comment"> 
                             <div class="invalid-feedback" id="required_delivery_address">
                                 
                             </div>
                         </div>
+                         <div class="text_header">
+    <span>Итоговая сумма: <span id="total_price_display">0 KZT</span></span>
+</div>
                     </div>
                 </div>
             </div>
@@ -384,11 +387,30 @@
                     <button type="button" class="next_prev_buttons" style="background-color: #bbbbbb;"  id="prevBtn"  onclick="nextPrev(-1)">Previous</button>
                     <button type="button" id="nextBtn" class="next_prev_buttons" onclick="nextPrev(1)">Next</button>
                 </div>
-            </div>
+            </div> 
+
+
+            <div class="payment_tab order_food_tab" id="payment_tab">
+    <div class="text_header">
+        <span>Payment</span>
+    </div>
+    <div style="text-align:center;"> 
+        <!-- Кнопка видна сразу -->
+        <button type="button" class="next_prev_buttons" onclick="simulatePayment()">QR</button>
+
+        <!-- QR появляется после клика -->
+        <div id="payment_image" style="margin-top:20px; display:none;">
+            <img src="Design/images/payment_image.png" alt="QR для оплаты" style="max-width:300px; cursor:pointer;">
+            <div style="margin-top:10px; font-weight:bold; color:#4CAF50;">Scan to Pay</div>
+        </div>
+    </div>
+</div>
+
 
             <!-- Circles which indicates the steps of the form: -->
 
             <div style="text-align:center;margin-top:40px;">
+                <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
             </div>
@@ -399,17 +421,19 @@
 
 
 
-
 	<!-- WIDGET SECTION / FOOTER -->
-
+    
     <section class="widget_section" style="background-color: #222227;padding: 100px 0;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="footer_widget">
-                        <img src="Design/images/restaurant-logo.png" alt="Restaurant Logo" style="width: 150px;margin-bottom: 20px;">
+                        <div style="text-align: center; padding: 20px;">
+    <div style="font-size: 24px; font-weight: bold; color: #ffffffff;">CAMPUS EATS</div>
+    <div style="font-size: 14px; color: #666;">AITU Canteen</div>
+</div>
                         <p>
-                            Our Restaurnt is one of the bests, provide tasty Menus and Dishes. You can reserve a table or Order food.
+                            Our App is one of the bests, provide tasty Menus and Dishes. 
                         </p>
                         <ul class="widget_social">
                             <li><a href="#" data-toggle="tooltip" title="Facebook"><i class="fab fa-facebook-f fa-2x"></i></a></li>
@@ -423,14 +447,11 @@
                 <div class="col-lg-3 col-md-6">
                      <div class="footer_widget">
                         <h3>Headquarters</h3>
-                        <p>
-                            962 Fifth Avenue, 3rd Floor New York, NY10022
-                        </p>
-                        <p>
-                            contact@restaurant.com
-                            <br>
-                            (+123) 456 789 101    
-                        </p>
+                        <ul class="opening_time">
+                            <li>Aruzhan Torebek</li>
+                            <li>Asylkhan Sayran</li>
+                            <li>Kundyz Zhumazhanova</li>
+                        </ul>
                      </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -439,28 +460,18 @@
                             Opening Hours
                         </h3>
                         <ul class="opening_time">
-                            <li>Monday - Friday 11:30am - 2:008pm</li>
-                            <li>Monday - Friday 11:30am - 2:008pm</li>
-                            <li>Monday - Friday 11:30am - 2:008pm</li>
-                            <li>Monday - Friday 11:30am - 2:008pm</li>
+                            <li>Monday - Friday 9:00am - 6:00pm</li>
+                            <li>Monday - Friday 9:00am - 6:00pm</li>
+                            <li>Monday - Friday 9:00am - 6:00pm</li>
+                            <li>Monday - Friday 9:00am - 6:00pm</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer_widget">
-                        <h3>Subscribe to our contents</h3>
-                        <div class="subscribe_form">
-                            <form action="#" class="subscribe_form" novalidate="true">
-                                <input type="email" name="EMAIL" id="subs-email" class="form_input" placeholder="Email Address...">
-                                <button type="submit" class="submit">SUBSCRIBE</button>
-                                <div class="clearfix"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
+
 
     <!-- FOOTER BOTTOM  -->
 
@@ -488,6 +499,35 @@
         var currentTab = 0;
         showTab(currentTab);
 
+        function updateTotalPrice() {
+    let total = 0;
+    document.querySelectorAll('input[name="selected_menus[]"]:checked').forEach(function(checkbox) {
+        const priceText = checkbox.closest('.item_select_part').querySelector('.menu_price_field span').innerText;
+        const price = parseFloat(priceText.replace('KZT', '').trim());
+        total += price;
+    });
+    document.getElementById('total_price').value = total;
+    document.getElementById('total_price_display').innerText = total + ' KZT';
+}
+
+document.querySelectorAll('input[name="selected_menus[]"]').forEach(function(checkbox) {
+    checkbox.addEventListener('change', updateTotalPrice);
+});
+
+        
+
+function simulatePayment() {
+    const qr = document.getElementById('payment_image');
+    qr.style.display = 'block';
+
+    // Добавим обработчик клика по QR
+    qr.addEventListener('click', function() {
+        qr.style.display = 'none';
+        currentTab = 0;
+        showTab(currentTab);
+    }, { once: true }); // Сработает один раз
+}
+        
         //Show Tab Function
 
         function showTab(n) 

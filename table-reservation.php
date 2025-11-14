@@ -71,7 +71,7 @@
         <div class="layer">
             <div style="text-align: center;padding: 15px;">
                 <h1 style="font-size: 120px; color: white;font-family: 'Roboto'; font-weight: 100;
-">Book a Table</h1>
+">Pick UP Time</h1>
             </div>
         </div>
         
@@ -91,9 +91,6 @@
 
                 $desired_date = $selected_date." ".$selected_time;
 
-                //Nbr of Guests
-
-                $number_of_guests = $_POST['number_of_guests'];
 
                 //Table ID
 
@@ -164,15 +161,7 @@
                     </div> 
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="form-group">
-                            <label for="number_of_guests">How many people?</label>
-                            <select class="form-control" name="number_of_guests">
-                                <option value="1" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>
-                                    One person
-                                </option>
-                                <option value="2" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>Two people</option>
-                                <option value="3" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>Three people</option>
-                                <option value="4" <?php echo (isset($_POST['number_of_guests']))?"selected":"";  ?>>Four people</option>
-                            </select>
+                        
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
@@ -192,7 +181,6 @@
                 {
                     $selected_date = $_POST['reservation_date'];
                     $selected_time = $_POST['reservation_time'];
-                    $number_of_guests = $_POST['number_of_guests'];
 
                     $stmt = $con->prepare("select table_id
                         from tables
@@ -258,7 +246,7 @@
                                     
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="submit_table_reservation_form" class="btn btn-info" value="Make a Reservation">
+                                    <input type="submit" name="submit_table_reservation_form" class="btn btn-info" value="Confirm Pick Up Time">
                                 </div>
                             </form>
                         <?php
@@ -303,15 +291,15 @@
             <div class="container">
             <div class="row">
             <div class="col-md-3 details_card">
-                <span>30</span>
+                <span>7K</span>
                 <div>
                     Total 
                     <br>
-                    Reservations
+                    Students
                 </div>
             </div>
             <div class="col-md-3 details_card">
-                <span>30</span>
+                <span>25+</span>
                 <div>
                     Total 
                     <br>
@@ -319,15 +307,15 @@
                 </div>
             </div>
             <div class="col-md-3 details_card">
-                <span>30</span>
+                <span>6</span>
                 <div>
                     Years of 
                     <br>
-                    Experience
+                    Experience AITU
                 </div>
             </div>
             <div class="col-md-3 details_card">
-                <span>30</span>
+                <span>30+</span>
                 <div>
                     Profesionnal 
                     <br>

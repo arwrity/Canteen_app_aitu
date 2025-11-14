@@ -1,4 +1,4 @@
-@media (max-width: 365px)
+@media (max-width: 665px)
 {
 	.mainmenu 
 	{
@@ -32,4 +32,29 @@
 	}
 
 
+}
+
+/* Для ноутбуков и десктопов - полноэкранный режим */
+@media (min-width: 1024px) {
+    body {
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+    
+    .container {
+        max-width: 1200px !important;
+        margin: 0 auto !important;
+    }
+    
+    .home-section {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Для планшетов */
+@media (min-width: 768px) and (max-width: 1023px) {
+    body {
+        max-width: 100% !important;
+    }
 }
